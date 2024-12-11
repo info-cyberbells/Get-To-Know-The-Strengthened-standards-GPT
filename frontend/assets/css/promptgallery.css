@@ -1,0 +1,247 @@
+/* Prompt Gallery specific styles */
+.prompt-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.prompt-gallery h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+}
+
+.understanding-section {
+    background: var(--outgoing-chat-bg);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid var(--outgoing-chat-border);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.understanding-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.understanding-section p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.understanding-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.understanding-section li {
+    margin: 1.2rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.understanding-section li:before {
+    content: "→";
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform var(--transition-speed);
+}
+
+.understanding-section li:hover:before {
+    transform: translateX(5px);
+}
+
+.prompt-controls {
+    background: var(--outgoing-chat-bg);
+    padding: 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid var(--outgoing-chat-border);
+}
+
+#prompt-filter {
+    width: 300px;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--outgoing-chat-border);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    background: var(--incoming-chat-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+#prompt-filter:hover {
+    border-color: var(--primary-color);
+}
+
+#prompt-filter:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--shadow-color);
+}
+
+.prompt-section {
+    background: var(--outgoing-chat-bg);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid var(--outgoing-chat-border);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--outgoing-chat-border);
+}
+
+.section-header h2 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.prompt-count {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.basic-queries, .advanced-queries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 2.5rem;
+}
+
+.basic-queries li, .advanced-queries li {
+    background: var(--incoming-chat-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    border: 2px solid transparent;
+    list-style-position: inside;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.basic-queries li:hover, .advanced-queries li:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.basic-queries li::after, .advanced-queries li::after {
+    content: "Click to copy";
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+}
+
+.basic-queries li:hover::after, .advanced-queries li:hover::after {
+    opacity: 0.7;
+}
+
+#toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    opacity: 0;
+    transition: all var(--transition-speed);
+    z-index: 1000;
+    font-weight: 500;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 768px) {
+    .prompt-gallery {
+        padding: 1rem;
+    }
+
+    .prompt-gallery h1 {
+        font-size: 2rem;
+    }
+
+    .prompt-controls {
+        padding: 1rem;
+    }
+    
+    #prompt-filter {
+        width: 100%;
+    }
+    
+    .basic-queries, .advanced-queries {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .understanding-section, .prompt-section {
+        padding: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.prompt-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.basic-queries li, .advanced-queries li {
+    animation: fadeIn 0.5s ease-out backwards;
+}
+
+.basic-queries li:nth-child(n), .advanced-queries li:nth-child(n) {
+    animation-delay: calc(0.1s * var(--i, 1));
+}
